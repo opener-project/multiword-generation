@@ -1,4 +1,4 @@
-package org.vicomtech.opener.multiwords;
+package org.vicomtech.opener.multiwords.preprocess;
 
 import ixa.kaflib.KAFDocument;
 import ixa.kaflib.Term;
@@ -16,13 +16,9 @@ public class KafBasedMultiwordDocumentPreprocessor implements DocumentPreprocess
 	private static Logger log=Logger.getLogger(KafBasedMultiwordDocumentPreprocessor.class);
 	
 	@Override
-	public List<String> preprocessDocument(String content, String language, boolean isKaf) {
-		if(isKaf){
+	public List<String> preprocessDocument(String content) {
 			List<String> preprocessedResults = getPreprocessedContent(content);
 			return preprocessedResults;
-		}else{
-			throw new RuntimeException("Using KafBasedMultiwordDocumentPreprocessor, but kaf flag set to false. Let's assume that for now only KAF is accepted!");
-		}
 	}
 	
 	/**

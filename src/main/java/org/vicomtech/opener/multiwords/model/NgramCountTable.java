@@ -1,4 +1,4 @@
-package org.vicomtech.opener.multiwords;
+package org.vicomtech.opener.multiwords.model;
 
 import java.util.Set;
 

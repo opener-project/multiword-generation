@@ -1,4 +1,4 @@
-package org.vicomtech.opener.multiwords;
+package org.vicomtech.opener.multiwords.model;
 
 public class NGramAndScore implements Comparable<NGramAndScore> {
 
@@ -68,6 +68,7 @@ public class NGramAndScore implements Comparable<NGramAndScore> {
 	@Override
 	public String toString() {
 		return "NGramAndScore [gram=" + gram + ", score=" + score + ", firstTokenCombinations="+numberOfAfterTokensForFirstPart+", secondPartCombinations="+numberOfBeforeTokensForSecondPart+"]  -> " + gram.replaceAll("_[A-Z,\\.]+", "");
+		//return gram.replaceAll("_[A-Z,\\.]+", "");
 	}
 
 }
