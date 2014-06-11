@@ -1,5 +1,9 @@
 package org.vicomtech.opener.multiwords.model;
 
+import java.util.List;
+
+import com.google.common.collect.Lists;
+
 public class NGramAndScore implements Comparable<NGramAndScore> {
 
 	private String gram;
@@ -69,6 +73,14 @@ public class NGramAndScore implements Comparable<NGramAndScore> {
 	public String toString() {
 		return "NGramAndScore [gram=" + gram + ", score=" + score + ", firstTokenCombinations="+numberOfAfterTokensForFirstPart+", secondPartCombinations="+numberOfBeforeTokensForSecondPart+"]  -> " + gram.replaceAll("_[A-Z,\\.]+", "");
 		//return gram.replaceAll("_[A-Z,\\.]+", "");
+	}
+	
+	public static List<String>toPlainMultiwordList(List<NGramAndScore>ngramAndScoreList){
+		List<String>plainList=Lists.newArrayList();
+		for(NGramAndScore nGramAndScore:ngramAndScoreList){
+			plainList.add(nGramAndScore.getGram().replaceAll("_[A-Z,\\.]+", ""));
+		}
+		return plainList;
 	}
 
 }

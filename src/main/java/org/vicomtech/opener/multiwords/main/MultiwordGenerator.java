@@ -1,4 +1,4 @@
-package org.vicomtech.opener.multiwords;
+package org.vicomtech.opener.multiwords.main;
 
 import java.io.File;
 import java.io.IOException;

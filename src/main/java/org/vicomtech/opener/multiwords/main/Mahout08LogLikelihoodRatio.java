@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.vicomtech.opener.multiwords;
+package org.vicomtech.opener.multiwords.main;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;

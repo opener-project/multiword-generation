@@ -1,4 +1,4 @@
-package org.vicomtech.opener.multiwords;
+package org.vicomtech.opener.multiwords.main;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class CLI {
 	 */
 	public static void main(String[] args) {
 		if(System.console()==null){
-			args=new String[]{"-i","C:\\Users\\agarciap\\Data\\REVIEWS_DATA\\ES_REVIEWS_KAF",
+			args=new String[]{"-i","C:\\Users\\agarciap\\Data\\REVIEWS_DATA\\EN_REVIEWS_KAF",
 					};
 		}
 		execute(args);
@@ -57,17 +57,18 @@ public class CLI {
 			
 			MultiwordGenerator multiwordGenerator=new MultiwordGenerator();
 			List<NGramAndScore> rankedGrams = multiwordGenerator.generateMultiwords(inputDirPath, ngramSize, listSize, outputFilePath);
+			List<String>plainList=NGramAndScore.toPlainMultiwordList(rankedGrams);
 			File outputfile=new File(CorpusHandlingUtils.generateUniqueFileName(outputFilePath));
 			try {
-				FileUtils.writeLines(outputfile,"UTF-8", rankedGrams);
+				FileUtils.writeLines(outputfile,"UTF-8", plainList);
 				System.out.println("Multiword terms written to: "+outputfile.getAbsolutePath());
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 			HelpFormatter formatter = new HelpFormatter();
-        	formatter.printHelp( "java -jar [NAME_OF_THE_JAR] [OPTION]", options );
+        	formatter.printHelp( "java -jar NAME_OF_THE_JAR [OPTIONS ...]", options );
 		}
 	}
 	
