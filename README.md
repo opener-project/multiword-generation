@@ -27,6 +27,9 @@ java -jar NAME_OF_THE_JAR -i INPUT_DIRECTORY [-n NGRAM_SIZE] [-l LIST_SIZE] [-o 
 ```
 
 The program will read the KAF files inside the INPUT_DIRECTORY specified int -i parameter.
+
 The -n parameter stablishes the maximum length of the generated multiwords (two by default).
+
 The -l parameter sets the desired size of the generated list (the generated multiwords are ranked, so in the lower part are the less likely correct multiword terms, and you may want to prune the list). Default is 100.
+
 The -o parameter sets the path to the output file that will be generated containing the multiword terms.
