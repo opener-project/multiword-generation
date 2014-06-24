@@ -51,7 +51,7 @@ public class CLI {
 		try{
 			CommandLine line=parser.parse(options, args);
 			String inputDirPath=line.getOptionValue("i");
-			String outputFilePath=returnUserValueOrDefault(line, "o", "./generated-multiwords.txt");
+			String outputFilePath=returnUserValueOrDefault(line, "o", "generated-multiwords.txt");
 			int ngramSize=returnUserValueOrDefault(line, "n", 2);
 			int listSize=returnUserValueOrDefault(line, "l", 100);
 			
